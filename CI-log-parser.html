@@ -85,6 +85,12 @@
 			if(line.includes('org.talend.components.') && line.includes('is not found')) {
 				document.getElementById("suggestions").innerHTML += 'Some components were not installed correctly, consider reinstall studio, likely a problem with maven_user_settings / localRepository -> ' + parseStuff(line, 'org.talend.components.') + br;
 			}
+			if(line.includes('Cannot invoke method checkParameters() on null object')) {
+				document.getElementById("suggestions").innerHTML += 'Is talend_jenkins_helper.groovy available under Managed Files?'+br
+			}
+			if(line.includes('is duplicated in the reactor')) {
+				document.getElementById("suggestions").innerHTML += 'Duplicate Items in reactor:<a href="https://help.talend.com/r/en-US/Cloud/studio-user-guide-api-services-platform/removing-old-versions-of-project-items"> Try to do a Cleanup</a>'+br
+			}
 		/*Skip the misleading lines*/
 			if(line.trim().endsWith('.class') || line.trim().endsWith('.java')) skip=true;
 
