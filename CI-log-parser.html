@@ -147,6 +147,10 @@
 				document.getElementById('results.missingjar').value += parseStuff(line,'missing jar:')+'\n';
 				skip = true;
 			}
+			if(line.includes('The following artifacts could not be resolved:')){
+				document.getElementById('results.missingjar').value += parseStuff(line,'The following artifacts could not be resolved:')+'\n';
+				skip = true;
+			}
 			
 
 		/*Parse the remaining*/
