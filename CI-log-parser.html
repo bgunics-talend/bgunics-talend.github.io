@@ -25,6 +25,7 @@
 		<div id='suggestions'> \
 			<div id='suggestions.patch1'></div> \
 			<div id='suggestions.patch2'></div> <br/>\
+			<div id='suggestions.gtk3'></div> <br/>\
 			<div id='suggestions.assembly'></div> <br/>\
 		</div> \
 		<br/> \
@@ -90,6 +91,9 @@
 			}
 			if(line.includes('is duplicated in the reactor')) {
 				document.getElementById("suggestions").innerHTML += 'Duplicate Items in reactor:<a href="https://help.talend.com/r/en-US/Cloud/studio-user-guide-api-services-platform/removing-old-versions-of-project-items"> Try to do a Cleanup</a>'+br
+			}
+			if(line.includes('Could not load SWT library.')) {
+				document.getElementById("suggestions.gtk3").innerHTML += 'Could not load SWT library. This should be provided by the GTK package. Please install the gtk3 libraries via: `yum install gtk3*` then reinstall commandline/studio ( -DforceUpdate=true  -Dinstaller.clean=true )'+br
 			}
 		/*Skip the misleading lines*/
 			if(line.trim().endsWith('.class') || line.trim().endsWith('.java')) skip=true;
